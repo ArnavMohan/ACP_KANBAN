@@ -1,1 +1,3 @@
 //Author: Jared
+//Operator: -
+//Purpose: 
