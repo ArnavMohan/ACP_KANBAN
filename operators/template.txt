@@ -1,0 +1,11 @@
+#include "../complex.h"
+
+return_type operatorsymbol(parameters){
+  //find new value
+  //either return value, or overwrite left hand side (return_type void)
+}
+
+//example:
+complex operator+(const complex &lhs, const complex &rhs){
+   double resulting_real = real(&lhs) + real(&rhs)
+}
