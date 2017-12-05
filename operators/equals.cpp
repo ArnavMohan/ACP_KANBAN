@@ -1,3 +1,0 @@
-//Author: Abhijay
-//Operator: =
-//Purpose: 
