@@ -1,6 +1,6 @@
 #include "../complex.h";
 //Author: Jared
-//Purpose: Subtracts two complex numbers and returns a complex data type with a real and imaginary value.
+//Purpose: Returns the magnitude of a complex number.
 double abs(const complex &comp)
 {
   double r = real(&comp);
