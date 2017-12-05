@@ -1,4 +1,4 @@
-#include "complex.h"
+#include "../complex.h"
 
 //Author: Rishi
 //Function: conjugate
