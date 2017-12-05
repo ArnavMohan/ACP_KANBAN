@@ -1,0 +1,2 @@
+
+double abs(const complex)
