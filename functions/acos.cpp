@@ -1,7 +1,7 @@
 #include "complex.h";
 //Author: Jared
 //Purpose: Returns the angle whose cosine is its argument.
-complex acos(const complex &comp)
+complex acos(const complex comp)
 {
   double negate = double(comp < 0);
   double r = real(abs(comp));
