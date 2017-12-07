@@ -2,8 +2,8 @@
 
 using namespace std;
 
-double real(const complex&){
-    double final_value;
+double real(const &complex c){
+    double final_value = c.re;
     
     return final_value;
 }
