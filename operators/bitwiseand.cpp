@@ -1,3 +1,0 @@
-//Author: Arnav
-//Symbol: &
-//Purpose: 
