@@ -1,7 +1,6 @@
 //Author: Rishi
 //Operator: *
 //Purpose: return the product of two complex numbers
-//FOILS it out
 
 #include "../complex.h"
 
