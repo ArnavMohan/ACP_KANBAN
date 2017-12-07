@@ -3,10 +3,10 @@
 #include "complex.h"
 using namespace std;
 complex log(const complex& x){
-	if(x.imag() == 0 && x.real() <= 0){
+	if(complex::imag(x) == 0 && complex::real(x) <= 0){
 		//ERROR
 	}
-	double arg = acos(x.real()/abs(x));
+	double arg = complex::acos(complex::real(x)/complex::abs(x));
 	if(arg > M_PI){
 		arg = 2*M_PI - arg;
 	}
