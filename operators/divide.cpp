@@ -12,7 +12,3 @@ complex operator/(const complex &lhs, const complex &rhs){
       return final;
 }
 
-void operator/=(const complex &lhs, const complex &rhs){
-      complex final = &lhs / &rhs;
-      lhs = final;
-}

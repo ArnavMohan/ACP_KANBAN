@@ -1,3 +1,0 @@
-//Author: Benji
-//Symbol: ^
-//Purpose: 

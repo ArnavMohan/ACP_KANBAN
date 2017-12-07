@@ -2,7 +2,7 @@
 //Author: Abhijay
 //Operator: +
 //Purpose: Adds two complex numbers and returns a complex data type with a real and imaginary value.
-complex operator +(const complex &lhs, const complex &rhs)
+complex operator+(const complex &lhs, const complex &rhs)
 {
       double resulting_real = real(&lhs) + real(&rhs);
       double resulting_imag = imag(&lhs) + imag(&rhs);
