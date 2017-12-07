@@ -3,5 +3,5 @@
 //Purpose: Returns the cosine of its argument.
 complex cos(const complex comp)
 {
-  return (exp(comp) + exp(comp * -1)) / 2;
+  return (compled::exp(comp) + complex::exp(comp * -1)) / 2;
 }
