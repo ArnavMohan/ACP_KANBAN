@@ -4,8 +4,8 @@
 complex acos(const complex comp)
 {
   double negate = double(comp < 0);
-  double r = real(abs(comp));
-  double i = imag(abs(comp));
+  double r = complex::real(complex::abs(comp));
+  double i = complex::imag(complex::abs(comp));
   double ret = -0.0187293;
   double iret = -0.0187293;
   ret = ret * r;
@@ -24,7 +24,7 @@ complex acos(const complex comp)
   iret = iret * sqrt(1.0-i);
   ret = ret - 2 * negate * ret;
   iret = iret - 2 * negate * iret;
-  real(comp) = ret;
-  imag(comp) = iret;
+  complex::real(comp) = ret;
+  complex::imag(comp) = iret;
   return comp;
 }
