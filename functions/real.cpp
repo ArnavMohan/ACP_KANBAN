@@ -1,8 +1,9 @@
-#include "../complex.h"
+#include complex.h
 
 using namespace std;
 
-return_type functionname(parameters){
-    //calculate return value
+double real(const complex&){
+    double final_value;
+    
     return final_value;
 }
