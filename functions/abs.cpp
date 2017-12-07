@@ -3,7 +3,7 @@
 //Purpose: Returns the magnitude of a complex number.
 double abs(const complex &comp)
 {
-  double r = real(&comp);
-  double i = imag(&comp);
-  return sqrt(pow(r) + pow(i));
+  double r = real(pow(&comp, 2));
+  double i = imag(pow(&comp, 2));
+  return real(sqrt(r + i));
 }
