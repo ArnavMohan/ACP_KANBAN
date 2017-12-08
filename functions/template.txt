@@ -1,5 +1,8 @@
 #include "../complex.h"
 
+//Author: your name
+//Function: function name
+//Purpose: purpose of function
 using namespace std;
 
 return_type functionname(parameters){
