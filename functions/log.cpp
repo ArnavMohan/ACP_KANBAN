@@ -11,7 +11,7 @@ complex log(const complex& x){
 		arg = 2*M_PI - arg;
 	}
 	complex result;
-	result.re = log(abs(x));
+	result.re = complex::log(complex::abs(x));
 	result.im = arg;
 	return result;
 }
