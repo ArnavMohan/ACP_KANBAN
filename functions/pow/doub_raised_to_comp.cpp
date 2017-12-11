@@ -14,6 +14,6 @@ complex pow(double b, const complex exp){
 	double real_component = distribution_scalar * cos( complex::imag(exp) * log(b) );  //uses log as ln from math.h
 	double imag_component = distribution_scalar * sin( complex::imag(exp) * log(b) );  //uses log as ln from math.h
 	
-	complex final_value = new complex(real_component, imag_component);
+	complex final_value(real_component, imag_component);
 	return final_value;
 }
