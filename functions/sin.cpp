@@ -11,6 +11,6 @@ complex sin(const complex input)
   double real_component = sin(complex::real(input))) * cosh(complex::imag(input));
   double imag_component = cos(complex::real(input)) * sinh(complex::imag(input));
 
-  complex sin_of_comp = new complex(real_component, imag_component);
+  complex sin_of_comp(real_component, imag_component);
   return sin_of_comp;
 }
