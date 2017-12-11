@@ -15,6 +15,6 @@ complex cosh(const complex input)
   //imag component is sinh(a)sin(b) => sinh(real part) * sin(imag part)
   double imag_component = sinh(complex::real(input)) * sin(complex::imag(input));
 
-  complex cosh_of_comp = new complex(real_component, imag_component);
+  complex cosh_of_comp(real_component, imag_component);
   return cosh_of_comp;
 }
