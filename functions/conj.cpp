@@ -8,6 +8,6 @@
 using namespace std;
 
 complex conj(const complex input_complex){
-  complex final = new complex(-1*real(input_complex), -1*imag(input_complex));
-  return final;
+  complex final_value(-1*real(input_complex), -1*imag(input_complex));
+  return final_value;
 }
