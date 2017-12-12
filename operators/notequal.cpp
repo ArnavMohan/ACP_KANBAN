@@ -4,5 +4,5 @@
 #include "complex.h"
 using namespace std;
 boolean operator!=(const complex &lhs, const complex &rhs){
-	return !(lsh == rhs);
+	return !(lhs == rhs);
 }
