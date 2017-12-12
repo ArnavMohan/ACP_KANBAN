@@ -92,43 +92,36 @@ class complex
     //exponentiation functions//
     ////////////////////////////
 
-   complex pow(const complex exp) {
-	    return complex::exp(exp*this->log());
+    complex pow(const complex b, const complex exp);
+    complex pow(double b, const complex exp);
+    complex pow(const complex b, double exp);
+    complex pow(const complex b, int exp);
+    complex pow (const complex b, int exp)
+    {
+        for (int i = 0; i < exp; i++)
+        {
+        complex::real(b) *= complex::real(b);
+        }
+        if (exp % 4 == 3)
+        {
+        complex::imag(b) *= -1;
+        }
+        else if (exp % 4 == 2)
+        {
+        complex::imag(b) = -1;
+        }
+        else if (exp % 4 == 1)
+        {
+        complex::imag(b) *= 1;
+        }
+        else if (exp % 4 == 0)
+        {
+        complex::imag(b) = 1;
+        }
+        return b;
     }
-    complex pow(double b) {
-		double distribution_scalar = pow(b, re); //uses pow(double b, double exp) from math.h 
-		double real_component = distribution_scalar * cos( im * log(b) );  //uses log as ln from math.h
-		double imag_component = distribution_scalar * sin( im * log(b) );  //uses log as ln from math.h
-		complex final_value(real_component, imag_component);
-		return final_value;
-	}		
-    complex pow(int exp){
-		for (int i = 0; i < exp; i++)
-  		{
-    		re *= re;
-  		}
-  		if (exp % 4 == 3)
-  		{
-    		im *= -1;
-  		}
-  		else if (exp % 4 == 2)
-  		{
-    		im = -1;
-  		}
-  		else if (exp % 4 == 1)
-  		{
-    		im *= 1;
-  		}
-  		else if (exp % 4 == 0)
-  		{
-    		im = 1;
-  		}
-  		return b;
-	}
-
-    complex exp(const complex){
-		return exp(re*complex(cos(im),sin(im)));
-	}
+    
+    complex exp(const complex);
     
     /////////////////////////
     //logarithmic functions//
@@ -141,18 +134,9 @@ class complex
     //angular functions//
     /////////////////////
 
-    complex polar(double mag, double ang = 0.0);
-    complex polar(double mag, double ang=0.0)
-    {
-	return complex(mag*cos(ang), mag*sin(ang));
-    }
-	
-    double arg(const complex &n);
-    double arg(const complex &n)
-    {
-	double angle = atan(complex::imag(n)/complex::real(n));
-	return angle;
-    }
+    double polar(double mag, double ang = 0.0);
+    double arg(const complex);
+
     ////////////////////////
     //arithmetic operators//
     ////////////////////////
@@ -182,17 +166,47 @@ class complex
         return final;
     }
 
-    complex operator*(const complex &lhs, const complex &rhs);
-    void operator*=(const complex &lhs, const complex &rhs);
+    complex operator*(const complex &lhs, const complex &rhs){
+  	//foil out the two sides into First, Outisde, Inside, Last.
+	double first_foil = real(&lhs) * real(&rhs);
+	double outisde_foil = real(&lhs) * imag(&rhs);
+	double inside_foil = imag(&lhs) * real(&rhs);
+	double last_foil = imag(&lhs) * imag(&rhs);
+	
+	//product refers to the product of the two params
+	//it's the item to be returned
+	double product_real = first_foil - last_foil;
+	double product_imag = outside_foil + inside_foil;
+	
+	complex product = new complex(product_real, product_imag);
+	return product; 
+    }
+    void operator*=(const complex &lhs, const complex &rhs){
+	complex product = lhs * rhs; 
+	lhs = product;
+    }
 
-    complex operator/(const complex &lhs, const complex &rhs);
-    void operator/=(const complex &lhs, const complex &rhs);
+    complex operator/(const complex &lhs, const complex &rhs){
+    // uses formula from http://mathworld.wolfram.com/ComplexDivision.html
+      double resulting_real = (real(&rhs)*real(&lhs) + imag(&rhs)*imag(&lhs))/(pow(real(&lhs),2) + pow(imag(&lhs),2));
+      double resulting_imag = (imag(&rhs)*real(&lhs) + real(&rhs)*imag(&lhs))/(pow(real(&lhs),2) + pow(imag(&lhs),2));
+      complex final = new complex(resulting_real, resulting_imag);
+      return final;
+      }
+    void operator/=(const complex &lhs, const complex &rhs){
+      complex final = &lhs / &rhs;
+      lhs = final;
+    }
 
     /////////////////////
     //logical operators//
     /////////////////////
     
-    boolean operator==(const complex &lhs, const complex &rhs);
+    boolean operator==(const complex &lhs, const complex &rhs){
+	return (lhs.imag()==rhs.imag() && lhs.real()==rhs.real());
+	}
     boolean operator!=(const complex &lhs, const complex &rhs);
-       
+       {
+	return !(lhs == rhs);
+	}
 };
