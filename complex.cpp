@@ -14,26 +14,60 @@ class complex
     //base functions//
     //////////////////
     
-    double real(const complex&);
-    double imag(const complex&);
-    double abs(const complex);    
-    double norm (const complex);
-    complex conj(const complex);
-    complex sqrt(const complex);
-
+    double real(){ return re; }
+    double imag(){ return im; }
+    double abs() { return ::sqrt(re*re + im*im); }    
+    double norm () { return re*re + im*im; }
+    complex conj() {
+        complex final_value(-1*re, -1*im);
+        return final_value;
+    }
+    complex sqrt() {
+        double complex_part_pos = (-16*re+::sqrt((re**2 + im**2)))/8;
+	    if (complex_part_pos >= 0)
+	    {
+	    	double complex_part = ::sqrt(complex_part_pos);
+	    }
+	    double real_part = im/(2*complex_part);
+	    complex final = new complex(real_part, complex_part);
+        return final;
+    }
+    
     //////////////////
     //trig functions//
     //////////////////
 
-    complex sin(const complex);
-    complex cos(const complex);
-    complex tan(const complex);
-
-    complex cosh(const complex);
-    complex sinh(const complex);
-
-    complex atan(const complex);
-
+    complex sin() {
+        double real_component = ::sin(re) * ::cosh(im);
+        double imag_component = ::cos(re) * ::sinh(im);
+        complex sin_of_comp(real_component, imag_component);
+        return sin_of_comp;
+    }
+    complex cos() {
+        //computes cos using cos(a + bi) = cos(a)cosh(b) - i*sin(a)sinh(b)
+        double real_component = ::cos(re) * ::cosh(im);
+        double imag_component = -1 * ::sin(re) * ::sinh(im);
+        complex cos_of_comp = new complex(real_component, imag_component);
+        return cos_of_comp;
+    }
+    complex tan() {
+        return this->sin() / this->cos();
+    }
+    complex cosh() {
+        //computes cosh using cosh( a + bi ) = cosh(a)cos(b) + sinh(a)sin(b)i
+        //real component is cosh(a)cos(b) => cosh(real part) * cos(imag part) 
+        double real_component = ::cosh(re) * ::cos(im);
+        //imag component is sinh(a)sin(b) => sinh(real part) * sin(imag part)
+        double imag_component = ::sinh(re) * ::sin(im);
+        complex cosh_of_comp(real_component, imag_component);
+        return cosh_of_comp;
+    }
+    complex sinh(const complex){
+        //NOT DONE
+    }
+    complex atan(const complex){
+        //NOT DONE
+    }
     ////////////////////////////
     //exponentiation functions//
     ////////////////////////////
