@@ -134,9 +134,18 @@ class complex
     //angular functions//
     /////////////////////
 
-    double polar(double mag, double ang = 0.0);
-    double arg(const complex);
-
+    complex polar(double mag, double ang = 0.0);
+    complex polar(double mag, double ang=0.0)
+    {
+	return complex(mag*cos(ang), mag*sin(ang));
+    }
+	
+    double arg(const complex &n);
+    double arg(const complex &n)
+    {
+	double angle = atan(complex::imag(n)/complex::real(n));
+	return angle;
+    }
     ////////////////////////
     //arithmetic operators//
     ////////////////////////
@@ -176,11 +185,7 @@ class complex
     //logical operators//
     /////////////////////
     
-    boolean operator==(const complex &lhs, const complex &rhs){
-	return (lhs.imag()==rhs.imag() && lhs.real()==rhs.real());
-	}
+    boolean operator==(const complex &lhs, const complex &rhs);
     boolean operator!=(const complex &lhs, const complex &rhs);
-       {
-	return !(lhs == rhs);
-	}
+       
 };
