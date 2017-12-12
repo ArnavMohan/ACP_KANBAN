@@ -171,10 +171,18 @@ class complex
     //arithmetic operators//
     ////////////////////////
   
-    complex operator+(const complex &lhs, const complex &rhs);
-    void operator +=(const complex &lhs, const complex &rhs);
-
-    complex operator-(const complex &lhs, const complex &rhs);
+    complex operator+(const complex &rhs){
+	    double resulting_real = re + real(&rhs);
+      	double resulting_imag = im + imag(&rhs);
+      //new complex type initialized with real and imaginary parts
+      //return that complex number
+      complex final = new complex(resulting_real, resulting_imag);
+      return final;
+    }
+    void operator +=(const complex &rhs) {
+	    complex final = this + &rhs;
+      this = final;
+    }
     complex operator-(const complex &rhs)
     {
         double resulting_real = re - real(&rhs);
@@ -185,7 +193,6 @@ class complex
         return fin;
     }
     
-    complex operator-=(const complex &lhs, const complex &rhs);
     complex operator-=(const complex &rhs)
     {
         //new complex type initialized with real and imaginary parts
