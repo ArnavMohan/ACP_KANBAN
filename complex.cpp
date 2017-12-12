@@ -134,15 +134,38 @@ class complex
     //logarithmic functions//
     /////////////////////////
 
-    complex log(const complex);
-    complex log10(const complex);
-
+    complex log() {
+	    if(im == 0 && re <= 0){
+			//ERROR
+		}
+		double arg = this->acos(re/this->abs());
+		if(arg > M_PI){
+			arg = 2*M_PI - arg;
+		}
+		complex result;
+		result.re = this->log(this->abs(x));
+		result.im = arg;
+		return result;
+	}
+    complex log10() {
+		complex lg = new complex (log(10));
+		complex logb10 = real(this->log())/lg;
+		return logb10;
+	}
     /////////////////////
     //angular functions//
     /////////////////////
 
-    double polar(double mag, double ang = 0.0);
-    double arg(const complex);
+    complex polar(double mag, double ang=0.0)
+    {
+	return complex(mag*::cos(ang), mag*::sin(ang));
+    }
+	
+    double arg()
+    {
+	double angle = atan(im/re);
+	return angle;
+    }
 
     ////////////////////////
     //arithmetic operators//
