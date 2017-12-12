@@ -92,36 +92,43 @@ class complex
     //exponentiation functions//
     ////////////////////////////
 
-    complex pow(const complex b, const complex exp);
-    complex pow(double b, const complex exp);
-    complex pow(const complex b, double exp);
-    complex pow(const complex b, int exp);
-    complex pow (const complex b, int exp)
-    {
-        for (int i = 0; i < exp; i++)
-        {
-        complex::real(b) *= complex::real(b);
-        }
-        if (exp % 4 == 3)
-        {
-        complex::imag(b) *= -1;
-        }
-        else if (exp % 4 == 2)
-        {
-        complex::imag(b) = -1;
-        }
-        else if (exp % 4 == 1)
-        {
-        complex::imag(b) *= 1;
-        }
-        else if (exp % 4 == 0)
-        {
-        complex::imag(b) = 1;
-        }
-        return b;
+     complex pow(const complex exp) {
+	    return complex::exp(exp*this->log());
     }
-    
-    complex exp(const complex);
+    complex pow(double b) {
+		double distribution_scalar = pow(b, re); //uses pow(double b, double exp) from math.h 
+		double real_component = distribution_scalar * cos( im * log(b) );  //uses log as ln from math.h
+		double imag_component = distribution_scalar * sin( im * log(b) );  //uses log as ln from math.h
+		complex final_value(real_component, imag_component);
+		return final_value;
+	}		
+    complex pow(int exp){
+		for (int i = 0; i < exp; i++)
+  		{
+    		re *= re;
+  		}
+  		if (exp % 4 == 3)
+  		{
+    		im *= -1;
+  		}
+  		else if (exp % 4 == 2)
+  		{
+    		im = -1;
+  		}
+  		else if (exp % 4 == 1)
+  		{
+    		im *= 1;
+  		}
+  		else if (exp % 4 == 0)
+  		{
+    		im = 1;
+  		}
+  		return b;
+	}
+
+    complex exp(const complex){
+		return exp(re*complex(cos(im),sin(im)));
+	}
     
     /////////////////////////
     //logarithmic functions//
