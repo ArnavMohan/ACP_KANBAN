@@ -5,7 +5,7 @@ class complex
     ////////////////
     //constructors//
     ////////////////
-
+    public:
     complex::complex() {re=0.0; im=0.0;}
     complex::complex(double r, double i) {re=r; im=i;}
     complex::complex(double r){re=r, im=0}
