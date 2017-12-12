@@ -76,7 +76,15 @@ class complex
         complex fin(resulting_real, resulting_imag);
         return fin;
     }
+    
     void operator-=(const complex &lhs, const complex &rhs);
+    void operator-=(const complex &lhs, const complex &rhs)
+    {
+        //new complex type initialized with real and imaginary parts
+        //return that complex number
+        complex final = &lhs - &rhs;
+        lhs = final;
+    }
 
     complex operator*(const complex &lhs, const complex &rhs);
     void operator*=(const complex &lhs, const complex &rhs);
