@@ -25,26 +25,9 @@ class complex
     //trig functions//
     //////////////////
 
-    complex sin(const complex c){
-        //computes sin using sin(a + bi) = sin(a)cosh(b) + cos(a)sinh(b)i
-        double real_component = sin(complex::real(c))) * cosh(complex::imag(c));
-        double imag_component = cos(complex::real(c)) * sinh(complex::imag(c));
-        
-        complex sin_of_comp(real_component, imag_component);
-        return sin_of_comp;
-    }
-    complex cos(const complex c){
-        //computes cos using cos(a + bi) = cos(a)cosh(b) - i*sin(a)sinh(b)
-        double real_component = cos(complex::real(c))) * cosh(complex::imag(c));
-        double imag_component = -1 * sin(complex::real(c)) * sinh(complex::imag(c));
-
-        complex cos_of_comp = new complex(real_component, imag_component);
-        return cos_of_comp;
-    }
-    complex tan(const complex c){
-        //calculate return value by calling other functions in the library                 
-        return complex::sin(c) / complex::cos(c);	
-`   };
+    complex sin(const complex);
+    complex cos(const complex);
+    complex tan(const complex);
 
     complex cosh(const complex);
     complex sinh(const complex);
@@ -94,13 +77,15 @@ class complex
         return fin;
     }
     
-    void operator-=(const complex &lhs, const complex &rhs);
-    void operator-=(const complex &lhs, const complex &rhs)
+    complex operator-=(const complex &lhs, const complex &rhs);
+    complex operator-=(const complex &rhs)
     {
         //new complex type initialized with real and imaginary parts
         //return that complex number
-        complex final = &lhs - &rhs;
-        lhs = final;
+        complex final;
+        real(final) = re - real(&rhs);
+        imag(final) = im - imag(&rhs);
+        return final;
     }
 
     complex operator*(const complex &lhs, const complex &rhs);
