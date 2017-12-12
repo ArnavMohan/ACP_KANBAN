@@ -13,7 +13,7 @@ complex pow (const complex b, int exp)
   }
   else if (exp % 4 == 2)
   {
-    complex::imag(b) == -1;
+    complex::imag(b) = -1;
   }
   else if (exp % 4 == 1)
   {
@@ -21,7 +21,7 @@ complex pow (const complex b, int exp)
   }
   else if (exp % 4 == 0)
   {
-    complex::imag(b) == 1;
+    complex::imag(b) = 1;
   }
   return b;
 }
