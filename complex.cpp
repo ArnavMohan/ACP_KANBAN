@@ -31,6 +31,10 @@ class complex
 
     complex cosh(const complex);
     complex sinh(const complex);
+    complex sinh(const complex)
+    {
+        return sinh(real(complex))*cos(imag(complex)) + pow(-1, .5)*cosh(real(complex))*sin(imag(complex));
+    }
 
     complex asin(const complex);
     complex acos(const complex);
