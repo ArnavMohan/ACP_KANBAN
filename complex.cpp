@@ -202,11 +202,11 @@ class complex
     //logical operators//
     /////////////////////
     
-    boolean operator==(const complex &lhs, const complex &rhs){
-	return (lhs.imag()==rhs.imag() && lhs.real()==rhs.real());
+    boolean operator==(const complex &rhs){
+	return (im==rhs.imag() && re==rhs.real());
 	}
-    boolean operator!=(const complex &lhs, const complex &rhs);
+    boolean operator!=(const complex &rhs);
        {
-	return !(lhs == rhs);
+	return !(this == rhs);
 	}
 };
