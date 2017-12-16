@@ -1,6 +1,7 @@
 #include complex.h
 #include <cmath>
-
+//Author: Benji
+//Purpose: returns inverse tangent of a complex number
 using namespace std;
 
 complex atan(const complex c){
