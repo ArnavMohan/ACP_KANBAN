@@ -1,5 +1,7 @@
 #include "../complex.h"
-
+//Author: 
+//Operator:
+//Purpose:
 return_type operatorsymbol(parameters){
   //find new value
   //either return value, or overwrite left hand side (return_type void)
