@@ -1,6 +1,6 @@
 #include "../complex.h"
 #include <math.h>
-
+//author: abhijay
 complex sqrt(const complex& n)
 {
 	double complex_part_pos = (-16*complex::real(n)+sqrt((complex::real(n)**2 + complex::imag(n)**2)))/8;
